@@ -1,7 +1,16 @@
 var database = [{
 		username: "rmuhamar",
 		passworrd: "password",
-}];
+	},
+	{
+		username: "dedek",
+		passworrd: "123",
+	},
+	{
+		username: "adul",
+		passworrd: "321",
+	}
+];
 
 var newsFeed = [
 	{
@@ -13,7 +22,7 @@ var newsFeed = [
 		timeline: "Geserlahh",	
 	},
 	{
-		Username: "Bimo",
+		username: "Bimo",
 		timeline: "Hau",  
 	}
 ];
@@ -22,11 +31,15 @@ var usernamePrompt = prompt("Masukan Usename Anda");
 var passwordPrompt = prompt("Masukan Password Anda");
 
 var signIn = function(user,password){
-	if (user === database[0].username && password === database[0].passworrd ){
-		console.log(newsFeed);
-	}else{
-		console.log("Username atau Password Anda Salah ");
+	for (var i = 0; i < database.length; i++) {
+		if (user === database[i].username && password === database[i].passworrd ){
+			return newsFeed.forEach(function(nama, i){
+				console.log(`Username : ${nama.username}, Timeline : ${nama.timeline}`);
+				// console.log();
+			});
+		}
 	}
+	return alert("password atau username anda salah");
 }
 
 signIn(usernamePrompt, passwordPrompt);
